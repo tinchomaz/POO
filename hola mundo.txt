@@ -1,1 +1,12 @@
 hola mundo
+
+
+Algoritmo  digitos 
+	definir  nValor  como entero 
+	Definir i, nDig  , nContador como entero 
+	Escribir  " ingrese  un valor numerico" 
+	leer  nValor  
+	Escribir cantDigitos(nValor)
+	nContador = cantDigitos(nValor)
+	Para i = 1 hasta nContador Hacer 
+		 Escribir

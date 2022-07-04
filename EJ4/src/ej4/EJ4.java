@@ -7,6 +7,7 @@ package ej4;
 
 import Entidad.Rectangulo;
 import java.util.Scanner;
+import Servicios.RectanguloS;
 /**
  *
  * @author Flores
@@ -26,11 +27,15 @@ Superficie = base * altura / Perímetro = (base + altura) * 2.
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner leer=new Scanner(System.in);
-        Rectangulo rec1;
-        rec1=new Rectangulo(leer.nextInt(),leer.nextInt());
+        /*LLAMAR AL CREADOR DE RECTANGULOS*/
+        RectanguloS rec=new RectanguloS();
+        /*-------------------------------*/
+        Rectangulo rec1=rec.CRectangulo();
         
-       rec1.setPerimetro((rec1.getAltura()+rec1.getBase())*2);
-       rec1.setSuperficie(rec1.getAltura()*rec1.getBase());
+        /*LLAMAMOS A REC.PERIMETRO Y LE PONEMOS LA VARIABLE REC1 PARA QUE CREE SU PERIMETRO EN LA CLASE SERVICIO*/
+        rec.Perimetro(rec1);
+        /*------------------------------------------------------------------------------------------------------*/
+        rec.Superficie(rec1);
         System.out.println(rec1.toString());
     }
     }

@@ -24,7 +24,7 @@ public class ServiciosCuenta {
        
         Cuenta C1 = new Cuenta();
        
-        System.out.println(" Ingrese el numero su Cuenta");
+        System.out.println(" Ingrese el numero su Cuenta ");
         C1.setNumerodeCuenta(leer.nextInt());
         System.out.println(" Ingrese numero de Dni ");
         C1.setDni(leer.nextInt());
@@ -59,7 +59,17 @@ public class ServiciosCuenta {
         
     }
     
-   
+   public void extrapido (Cuenta rex){
+       System.out.println(" Extraccion rapida (Solo permite el 20% de su saldo)");
+       double ret = leer.nextInt();
+       if(ret<=rex.saldo*0.20){
+           rex.setSaldo(rex.saldo-ret);
+           System.out.println(" el saldo es " + rex.getSaldo());
+           
+       }else {
+           System.out.println(" No se puede realizar la extraccion rapida");
+       }
+           }   
+}    
     
-    
-}
+

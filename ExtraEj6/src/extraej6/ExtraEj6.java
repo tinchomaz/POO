@@ -22,7 +22,7 @@ public class ExtraEj6 {
         ServiciosAhorcado sa = new  ServiciosAhorcado();
         juego = sa.crearJuego();
         System.out.println(juego.toString());
-        sa.juego(juego,  10);
+        sa.juego(juego,  5 );
     }
     
 }

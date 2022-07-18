@@ -15,14 +15,16 @@ parámetros que sean necesarios:
  */
 public class Ahorcado {
     public  char[]  Palabra  ; 
-    public  int  encontradas; 
-    public  int  jugadas; 
+    public  char[]  Descubierta; 
+    public  int     encontradas; 
+    public  int     jugadas; 
 
     public Ahorcado() {
     }
     
      public Ahorcado(int   tamanio) {
-         Palabra  = new char[tamanio]; 
+         Palabra     = new char[tamanio]; 
+         Descubierta = new char[tamanio]; 
     }
 
     public Ahorcado(char[] Palabra, int encontradas, int jugadas) {
@@ -34,11 +36,16 @@ public class Ahorcado {
     public char[] getPalabra() {
         return Palabra;
     }
+    public char[] getDescubirta() {
+        return Descubierta;
+    }
 
     public void setPalabra(char[] Palabra) {
         this.Palabra = Palabra;
     }
-
+public void setDescubierta(char[] Palabra) {
+        this.Descubierta = Palabra;
+    }
     public int getEncontradas() {
         return encontradas;
     }
@@ -57,14 +64,21 @@ public class Ahorcado {
 
     @Override
     public String toString() {
-        String  texto= "" ; 
+        String  texto = "[" ; 
+        String  texto2= "[" ; 
         for ( int i = 0 ; i< Palabra.length ; i++) {
-            System.out.print(this.Palabra[i]);
+           // System.out.print(this.Palabra[i]);
+            texto = texto.concat( String.valueOf(Palabra[i] ));
         }
-        return "Ahorcado{" + "Palabra=" + Palabra + ", encontradas=" + encontradas + ", jugadas=" + jugadas + '}';
+        texto = texto.concat( "]" );
+        for ( int i = 0 ; i< Descubierta.length ; i++) {           
+            texto2 = texto2.concat( String.valueOf(Descubierta[i] ));
+        }
+        texto2 = texto2.concat( "]" );
+        //return "Ahorcado{" + "Palabra=" + texto + ", encontradas=" + encontradas + ", jugadas=" + jugadas + 
+        return "Ahorcado{" + " encontradas=" + encontradas + ", jugadas=" + jugadas + 
+               ",Descubierta=" + texto2 + "}" ;
     }
 
-    
-    
     
 }

@@ -76,8 +76,8 @@ public void setDescubierta(char[] Palabra) {
         }
         texto2 = texto2.concat( "]" );
         //return "Ahorcado{" + "Palabra=" + texto + ", encontradas=" + encontradas + ", jugadas=" + jugadas + 
-        return "Ahorcado{" + " encontradas=" + encontradas + ", jugadas=" + jugadas + 
-               ",Descubierta=" + texto2 + "}" ;
+        return "Resultado del Ahorcado{" + " encontradas = " + encontradas + ", errores = " + jugadas + 
+               ", Descubierta = " + texto2 + "}" ;
     }
 
     

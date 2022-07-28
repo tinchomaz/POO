@@ -48,16 +48,18 @@ public class ServiciosAhorcado {
          int   errores =0 ; 
          sg.dibujar(errores);
          do {
-             System.out.println(" una letra para continuar ");
+             System.out.println(" Elije una letra para continuar ");
              Letra= leer.next().toUpperCase().charAt(0);
              ret  = buscar(Ahor, Letra);             
              if (!ret) {
                  errores++;
+                 Ahor.setJugadas(Ahor.getJugadas() + 1);
                  sg.dibujar(errores);
              }
              ret  = encontradas(Ahor, Letra);
              
              intentos(Ahor,intentos );  
+             intentos=5;
             if (( Ahor.getJugadas()>= intentos )|| Ahor.getEncontradas()== this.longitud(Ahor)){
                 fin = true;
             }
@@ -65,7 +67,7 @@ public class ServiciosAhorcado {
             System.out.println(Ahor.toString()); 
          } while(!fin);    
          if (Ahor.getEncontradas()== this.longitud(Ahor)) {
-             System.out.println("Encontraste la la palabra");
+             System.out.println("Encontraste la palabra");
          }  else {
              String texto = "";
              for (int i =0 ; i <Ahor.getPalabra().length ; i++ ) {
@@ -75,10 +77,10 @@ public class ServiciosAhorcado {
              sg.visualizar();
              System.out.println("Estas ahorcado. La palabra era : " + texto ) ;
          }
-    }
-    /*-------------------------------------------------------------------*/ 
-    public  void intentos(Ahorcado Ahor , int intentos ) {
-        System.out.println("Le quedan "+ (intentos  - Ahor.getJugadas() ) + " intentos");         
+    }         
+      /*-------------------------------------------------------------------*/ 
+    public  void intentos(Ahorcado Ahor , int intentos ){
+        System.out.println("Le quedan "+ ( intentos  - Ahor.getJugadas() ) + " intentos");         
     }
     
     public boolean  encontradas( Ahorcado Ahor, char Letra) {
@@ -89,22 +91,22 @@ public class ServiciosAhorcado {
     
     
     public boolean  buscar ( Ahorcado Ahor, char Letra) {
-        boolean  encontrado = false; 
-        Ahor.setJugadas( Ahor.getJugadas() + 1 );
+       boolean  encontrado = false; 
+        
+        //Ahor.setJugadas(Ahor.getJugadas() + 1);
         for (int i=0; i< longitud(Ahor); i++  ){
             if ((Ahor.Palabra[i]== Letra) && ( Ahor.Descubierta[i]=="*".charAt(0))) {
                 encontrado = true;                
-               // System.out.println("La letra [" + Letra + "] si  forma parte de la palabra");
                 Ahor.setEncontradas( Ahor.getEncontradas()+1 );
                 actualizarDescubiera(Ahor, Letra, i );
-                //break;
-            }//else {
-             //   System.out.println("La letra NO  forma parte de la palabra");                
-            //}
+             }/*else{
+                
+                Ahor.setJugadas( Ahor.getJugadas()+1);
+            } */  
         }   
         return   encontrado; 
     }  
-    
+
     public void actualizarDescubiera(Ahorcado Ahor,char Letra,int  i ){
         Ahor.Descubierta[i]= Letra;
     }

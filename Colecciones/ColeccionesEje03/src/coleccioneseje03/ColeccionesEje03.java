@@ -5,7 +5,9 @@
  */
 package coleccioneseje03;
 
+import Servicios.Comparadores;
 import Servicios.ServicioAlumnos;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -35,6 +37,8 @@ con sus 3 notas.
        } while (!fin) ;        
        
        sa.MostrarAlumnos();
+       System.out.println("- Ordenado descendente por  nombres ");               
+       sa.MostrarAlumnosPorNombre();
        fin = false;
        do{       
           System.out.println( sa.notaFinal() ) ;

@@ -7,6 +7,7 @@ package Servicios;
 
 import Entidades.Alumno;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -65,5 +66,11 @@ promedio final, devuelto por el método y mostrado en el main
               System.out.println("No existe ese alumno");
             } ;
         return (promedio);
+    }
+     public void MostrarAlumnosPorNombre(){                      
+        Collections.sort(ListaAlumnos, Comparadores.ordenaPorNombreDesc);
+        for( Alumno var : ListaAlumnos){       
+            System.out.println(var.toString());  
+        }
     }
 }
